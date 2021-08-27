@@ -1,11 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <sec:authorize access="isAuthenticated()">
 	<sec:authentication property="principal" var="principal"/>
-</sec:authorize>
-
+</sec:authorize>    
+    
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -69,8 +70,7 @@
             }
         </style>
     </head>
-
-    <body>
+<body>
         <header class="page-header wrapper">
             <a href="/"><img class="logo" src="/category/images/logo2.png" alt="로고"></a>
             <nav>
@@ -117,7 +117,10 @@
                     </div>
                     <div class="gap-box"></div>
                     <div class="btn_login">
-                        <input type="submit" onclick="location.href='/'" value="로그인"> 
+                    <button class="btn-login">로그인</button>
+                    <!-- 
+                        <input type="button" id="btn-login" value="로그인">
+                     -->   
                     </div>
                     <div class="gap-box"></div>
                     <div class="btn_kakao">
@@ -129,10 +132,10 @@
                         </a>
                     </div> 
 						<div style="margin: 10px 0">
-						<span class="forgotId"><a style="color: orange;text-decoration:underline" onclick="document.getElementById('idBox').style.display='block'" href="#" >ID</a> 찾기</span>
+						<span class="forgotId"><a style="color: orange;text-decoration:underline" href="#" onclick="document.getElementById('idBox').style.display='block'">ID</a> 찾기</span>
 						</div>
 						<div>
-						<span class="psw"><a href="#" style="color: orange; text-decoration:underline" onclick="document.getElementById('idBox_pw').style.display='block'">비밀번호</a> 찾기</span>
+						<span class="psw"><a href="#" style="color: orange; text-decoration:underline">비밀번호</a> 찾기</span>
 						</div>
 
                     <div class="gap-box"></div>
@@ -145,59 +148,31 @@
         </main>
        
         
-        <div id="idBox" class="modal">
-	
-		<form class="modal-content animate" action="/find/email" method="post">
-	  		<div class="container" style="text-align: center">
-				<h1><b>ID 찾기</b></h1>
-			</div>
-			<br>
-
-	  			<p style="text-align: center"> 💌 가입시 입력한 이메일로 가입여부를 체크합니다.</p>
-	  		
-	  		<div class="container-email">
-     			<label for="userEmail"><h3>Email</h3></label>
-     			<input type="email" class="email" placeholder="이메일을 입력해주세요 ex) email@email.com" name="userEmail" required>
-
-	  			<button type="submit" class="findbtn" onclick="document.getelementById('idBox2').style.display='block'">아이디 찾기</button>
-	  		</div>
-	  		<div class="container" style="background-color:#f1f1f1">
-      			<button type="button" onclick="document.getElementById('idBox').style.display='none'" class="cancelbtn">Cancel</button>
-	  			<!-- document.getElementById('idBox').style.display='none' -->
-	  		</div>
-		</form>
+<div id="idBox2" class="modal">
+	<div class="modal-content animate">
+		<div class="container" style="text-align: center">
+			<h1><b>ID 찾기</b></h1>
 		</div>
-		
-		<div id="idBox_pw" class="modal">
-	
-		<form class="modal-content animate" action="/find/password" method="post">
-	  		<div class="container" style="text-align: center">
-				<h1><b>비밀번호 찾기</b></h1>
-			</div>
-			<br>
-	  			<p style="text-align: center"> 💌 가입시 입력한 ID와 이메일로 가입여부를 체크합니다.</p>
-	  			<p style="text-align: center"> 💌 가입시 입력한 이메일로 임시 비밀번호를 발송해드립니다.</p>
-	  
-	  		<div class="container-email">
-	  			<label for="username"><h3>ID</h3></label>
-     			<input type="text" class="email" placeholder="ID를 입력해주세요" name="username" required>
-	  			<div><br></div>
-     			<label for="userEmail"><h3>Email</h3></label>
-     			<input type="email" class="email" placeholder="이메일을 입력해주세요 ex) email@email.com" name="userEmail" required>
-
-	  			<button type="submit" class="findbtn" onclick="document.getelementById('idBox_pw').style.display='block'">임시 비밀번호 발송</button>
-	  		</div>
-	  		<div class="container" style="background-color:#f1f1f1">
-      			<button type="button" onclick="document.getElementById('idBox_pw').style.display='none'" class="cancelbtn">Cancel</button>
-	  			<!-- document.getElementById('idBox').style.display='none' -->
-	  		</div>
-		</form>
+		<br>
+		<div class="container-email">
+	     	<h3> ✔ 검색 결과  </h3>
 		</div>
-        
+		<hr><br>
+		<div>
+			<h5>
+				<span> 가입하신 아이디는 ' <b>${userId}</b> ' 입니다. </span>
+			</h5><br>
+	 	</div>
+		<div class="container" style="background-color:#f1f1f1">
+     		<button type="button" onclick="document.getElementById('idBox2').style.display='none'" class="cancelbtn">Cancel</button>
+  		<!-- document.getElementById('idBox').style.display='none' -->
+   		</div>
+  	</div>
+</div>
+
 <script>
 // Get the modal
-var modal = document.getElementById('idBox');
-var model = document.getElementById('idBox_pw');
+var modal = document.getElementById('idBox2');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
@@ -205,36 +180,11 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
-// 로그인 유효성 검사
-var Login__submitDone = false;
 
-function Login__submit(form) {
-	
-	if ( Login__submitDone ) {
-		alert('처리중입니다.')
-		return;
-	}
-	
-	form.username.value = form.username.value.trim();
-	
-	if ( form.username.value.length == 0 ) {
-		alert('로그인 아이디를 입력해주세요.');
-		return;
-	} 
-	
-	form.password.value = form.password.value.trim();
-	
-	if (form.password.value.length == 0 ) {
-		alert('비밀번호를 입력해주세요.')
-		return;
-	}
-	
-	
-	form.submit();
-	Login__submitDone = true;
+window.onload = function(event) {
+	var modal = document.getElementById('idBox2').style.display="block";
 }
+
 </script>
-        
-        
-    </body>
+</body>
 </html>
