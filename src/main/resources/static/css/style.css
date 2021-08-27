@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+html {
+    font-size: 100%;
+}
+body {
+    font-family: "나눔고딕", NanumGothic, "맑은고딕", MalgunGothic, "Apple SD Gothic Neo", sans-serif;
+    line-height: 1.5;
+    color: #432;
+}
+a {
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+}
+
+/* category */
+.logo {
+    width: 60px;
+    margin: 20px 0 0 50px;
+}
+/* main bar */
+.main-nav {
+    display: flex;
+    font-size: 1.25rem;
+    margin-top: 30px;
+    list-style: none;
+}
+.main-nav li {
+    margin-left: 36px;
+    text-align: center;
+}
+.main-nav a {
+    color: gray;
+}
+.main-nav a:hover {
+    color: black;
+    font-weight: bold;
+}
+.page-header {
+    display: flex;
+    justify-content: flex-start;
+}
+.wrapper {
+    max-width: 300vh;
+    margin: 0 auto;
+    padding: 0 0%;
+}
+
+/* 오른쪽 메뉴 분할 */
+.main-nav li:nth-child(5) {
+    margin-left: 60rem;
+}
+
+/* main */
+.wrap {
+    background-image: url(../images/sea.png);
+    background-size: cover;
+    height: 50vh;
+    overflow:hidden;
+    margin-top: 100px;
+}
+.wrap .page-title {
+    text-align: center;
+    padding-top: 10%;
+    font-size:50px;
+    color: #fff;
+    font-family:sans-serif;
+}
+
+/* placeholder */
+input:-ms-input-placeholder {color:rgb(155, 155, 155);}
+input::-webkit-input-placeholder {color:rgb(155, 155, 155);}
+input::-moz-placeholder {color:rgb(155, 155, 155);}
+::placeholder {padding: 10px; font-size: 15px;}
+
+/* 검색창 */
+.search {
+    height: 50px;
+    width:600px;
+    border-radius: 5px;
+    background: #fff;
+    position: absolute;
+    top: 45%; left: 35%
+}
+button {
+    width: 150px;
+    height: 100%;
+    border: 0px;
+    background: #f89b00;
+    outline: none;
+    float: right;
+    color: #fff;
+    font-size: 25px;
+    text-align: center;
+}
+.box {
+    position: absolute;
+    top: 43.5%; left:34%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 640px;
+    height: 80px;
+    background-color: gray;
+    opacity: 0.3;
+}
