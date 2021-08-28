@@ -51,7 +51,7 @@ public class Security extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable() // csrf 토큰 비활성화 (테스트시 걸어두는게 좋음)
 				.authorizeRequests()// .antMatchers("/auth/**","/")//이쪽으로오는요청은
-				.antMatchers("/auth/**","/", "/search/**","/find/**", "/faq/**").permitAll()// 허용
+				.antMatchers("/auth/**","/", "/search/**","/find/**", "/faq/**", "/board").permitAll()// 허용
 				.anyRequest()// 다른 모든요청들은
 				.authenticated()// 인증이 되야되
 				.and()

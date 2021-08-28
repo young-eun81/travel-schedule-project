@@ -23,9 +23,9 @@
             <a href="/"><img class="logo" src="category/images/logo2.png" alt="로고"></a>
             <nav>
                 <ul class="main-nav">
-                    <li><a href="review.html">후기페이지</a></li>
-                    <li><a href="detail.html">상세페이지</a></li>
-                    <li><a href="faq.html">문의페이지</a></li>
+                    <li><a href="/board">후기페이지</a></li>
+                    <li><a href="/faq">문의페이지</a></li>
+                    <li></li>
                     <li></li>
                     <c:choose>
                 	<c:when test="${empty principal}">
@@ -33,6 +33,7 @@
                     <li><a href="/auth/joinForm" style="color: black; font-size: 1.15rem;">회원가입</a></li>
 					</c:when>
 					<c:otherwise>
+					
 					<li><a href="sign_up_update.html">회원정보페이지</a></li>
 					<li><a href="/logout">로그아웃</a></li>
 					</c:otherwise>

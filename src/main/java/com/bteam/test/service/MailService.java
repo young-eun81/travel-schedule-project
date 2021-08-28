@@ -6,6 +6,8 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import com.bteam.test.model.User;
+
 import lombok.AllArgsConstructor;
 
 @Service
@@ -17,10 +19,10 @@ public class MailService {
 	
 	private final int pwdLength = 10;
 	private final char[] pwdCode = {
-			'a','b','c', 'd', 'e', 'f', 'g', '2', '3', '4', '5', '!', '#', '^'
+			'a','b','c','d','e','f','g','2','3','4','5','!','#','^','+'
 	};
 	
-	public void mailSend(String email, String username) {
+	public void mailSend(String email, String username, User user) {
 			
 		SimpleMailMessage message = new SimpleMailMessage();
 		
@@ -30,6 +32,8 @@ public class MailService {
 		message.setText(username + "님의 임시 비밀번호는 " + createPw() + " 입니다.");
 		
 		mailSender.send(message);
+		
+		user.setPassword(createPw());
 	}
 	
 	public String createPw() {

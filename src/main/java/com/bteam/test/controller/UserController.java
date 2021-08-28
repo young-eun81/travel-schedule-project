@@ -57,7 +57,7 @@ public class UserController {
 		
 		model.addAttribute(userService.findByIdAndEmail(response, user ,username, email));
 		
-		mailService.mailSend(email, username);
+		mailService.mailSend(email, username, user);
 		
 		
 		return "redirect:/";
