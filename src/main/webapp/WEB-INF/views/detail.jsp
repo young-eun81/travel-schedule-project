@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+		 pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
@@ -221,8 +221,8 @@ a:hover.map_Content {
 						value="${content.address}">
 					<textarea cols="50" rows="20" class="date2" placeholder="간단한 소개글">${content.instruction}</textarea>
 				</div>
-				<div id="map">
-					<table style="">
+				<div id="map"> <!-- 카카오 지도 -->
+					<table style=""> <!-- 카카오 지도 설명 => 이 부분이 없으면 지도가 안나옴 -->
 					<tr>
 						<td style=""><table style="">
 								<tr>
@@ -342,3 +342,4 @@ a:hover.map_Content {
       </script>
 </body>
 </html>
+
