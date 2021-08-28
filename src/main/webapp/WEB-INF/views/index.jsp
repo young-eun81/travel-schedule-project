@@ -55,9 +55,9 @@
             <a href="/"><img class="logo" src="category/images/logo2.png" alt="로고"></a>
             <nav>
                 <ul class="main-nav">
-                    <li><a href="review.html">후기페이지</a></li>
-                    <li><a href="detail.html">상세페이지</a></li>
-                    <li><a href="faq.html">문의페이지</a></li>
+                    
+                    <li></li>
+                    <li><a href="/faq">문의페이지</a></li>
                     <li></li>
                     <c:choose>
                 	<c:when test="${empty principal}">
@@ -65,6 +65,7 @@
                     <li><a href="/auth/joinForm" style="color: black; font-size: 1.15rem;">회원가입</a></li>
 					</c:when>
 					<c:otherwise>
+					<li><a href="/board">후기페이지</a></li>
 					<li><a href="sign_up_update.html">회원정보페이지</a></li>
 					<li><a href="/logout">로그아웃</a></li>
 					</c:otherwise>
@@ -77,12 +78,14 @@
         <div class="wrap">
             <h2 class="page-title">슬로건 / 사이트 이름</h2>
             <div class="box"></div>
+            
             <form action="/search" method="get">
             <div class="search">
                 <input type="text" name="keyword" placeholder="검색어 입력">
                 <button style="border-top-right-radius: 5px; border-bottom-right-radius: 5px;">검색</button>          
             </div>
             </form>
+            
         </div><!-- wrap -->
         
 <div class="container">        
@@ -101,6 +104,7 @@
 </div> <!-- grid -->
 
 </form>
+
 </div> 
 </body>
 </html>

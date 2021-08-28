@@ -24,6 +24,6 @@ public class InfoController {
 		model.addAttribute("content",content);
 		
 		
-		return "detailcopy";
+		return "detail";
 	}
 }

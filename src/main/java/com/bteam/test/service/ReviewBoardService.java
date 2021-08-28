@@ -28,9 +28,14 @@ public class ReviewBoardService {
 		boardRepository.save(board);
 	}
 	
-	@Transactional(readOnly = true)
-	public Page<ReviewBoard> 글목록(Pageable pageable) {
-		return boardRepository.findAll(pageable);
+//	@Transactional(readOnly = true)
+//	public Page<ReviewBoard> 글목록(Pageable pageable) {
+//		return boardRepository.findAll(pageable);
+//	}
+	
+	public List<ReviewBoard> reviewIndex() {
+		
+		return boardRepository.findAll();
 	}
 	
 	@Transactional(readOnly = true)

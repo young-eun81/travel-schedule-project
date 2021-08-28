@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.bteam.test.model.ReviewBoard;
 import com.bteam.test.service.ReviewBoardService;
 
 @Controller
@@ -17,10 +18,13 @@ public class ReviewBoardController {
 	@Autowired
 	private ReviewBoardService boardService;
 	
-	@GetMapping({"", "/"})
+	@GetMapping("/board")
 	public String index(Model model, @PageableDefault(size=3, sort="id", direction = Sort.Direction.DESC) Pageable pageable) {
-		model.addAttribute("boards", boardService.글목록(pageable));
-		return "index"; 
+		//model.addAttribute("boards", boardService.글목록(pageable));
+		
+		model.addAttribute("boards", boardService.reviewIndex());
+//		model.addAttribute("board", new ReviewBoard());	
+		return "reviewindex"; 
 	}
 	@GetMapping("/board/{id}")
 	public String findById(@PathVariable int id, Model model) {
@@ -36,7 +40,7 @@ public class ReviewBoardController {
 	
 	@GetMapping("/board/saveForm")
 	public String saveForm() {
-		return "board/saveForm";
+		return "reviewboard/reviewWrite";
 	}
 	
 }

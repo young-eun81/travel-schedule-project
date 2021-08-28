@@ -26,10 +26,10 @@ let index = {
 				dataType: "json" 
 			}).done(function(resp){
 				alert("글쓰기가  완료되었습니다.")
-				//console.log(resp);
-				location.href = "/";
+				console.log(resp);
+				location.href = "/board";
 			}).fail(function(error){
-				alert(JSON.stirngify(error));
+				alert(JSON.stringify(error));
 			}); 
 			
 		},
@@ -45,7 +45,7 @@ let index = {
 				alert("삭제가  완료되었습니다.")
 				location.href = "/";
 			}).fail(function(error){
-				alert(JSON.stirngify(error));
+				alert(JSON.stringify(error));
 			}); 
 			
 		},
@@ -68,7 +68,7 @@ let index = {
 				alert("글수정이  완료되었습니다.")
 				location.href = "/";
 			}).fail(function(error){
-				alert(JSON.stirngify(error));
+				alert(JSON.stringify(error));
 			}); 
 			
 		},

@@ -53,17 +53,5 @@ public class ApiController {
 		
 		return "search";
 	}
-	
-	@GetMapping("/search/{title}")
-	public String showContent(@PathVariable String title, Model model) {
-		
-		ApiForm content = apiService.readContent(title);
-		
-		model.addAttribute("content",content);
-		
-		log.info("title={}", title);
-		
-		return "detail";
-	}
 
 }
